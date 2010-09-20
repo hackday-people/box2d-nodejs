@@ -16,7 +16,8 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-
+var b2Mat22 = require("./b2Mat22");
+var b2Vec2 = require("./b2Vec2.js");
 
 var b2Math = {};
 b2Math.b2IsValid = function(x)
@@ -152,3 +153,5 @@ b2Math.tempVec3 = new b2Vec2();
 b2Math.tempVec4 = new b2Vec2();
 b2Math.tempVec5 = new b2Vec2();
 b2Math.tempMat = new b2Mat22();
+
+module.exports = b2Math;

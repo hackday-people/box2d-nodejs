@@ -16,7 +16,14 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-var b2ShapeDef = function() {
+var sys = require("sys");
+
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Math = require("../../common/math/b2Math");
+var b2Shape = require("./b2Shape");
+module.exports = b2ShapeDef;
+
+function b2ShapeDef() {
   this.type = b2Shape.e_unknownShape;
   this.userData = null;
   this.localPosition = new b2Vec2(0.0, 0.0);
@@ -27,13 +34,24 @@ var b2ShapeDef = function() {
   this.categoryBits = 0x0001;
   this.maskBits = 0xFFFF;
   this.groupIndex = 0;
+
+
 };
+
 
 b2ShapeDef.prototype = {
 	//virtual ~b2ShapeDef() {}
 
 	ComputeMass: function(massData)
 	{
+
+//NODEJS added
+this.e_unknownShape = -1;
+this.e_circleShape = 0;
+this.e_boxShape = 1;
+this.e_polyShape = 2;
+this.e_meshShape = 3;
+this.e_shapeTypeCount = 4;
 
 		massData.center = new b2Vec2(0.0, 0.0)
 
@@ -44,6 +62,7 @@ b2ShapeDef.prototype = {
 			massData.I = 0.0;
 		};
 
+				sys.log('BOX?'+this.type+' '+this.e_boxShape);
 		switch (this.type)
 		{
 		case b2Shape.e_circleShape:
@@ -55,9 +74,11 @@ b2ShapeDef.prototype = {
 			}
 			break;
 
-		case b2Shape.e_boxShape:
+		case this.e_boxShape:
+				sys.log('BOX');
 			{
 				var box = this;
+				sys.log('BOX');
 				massData.mass = 4.0 * this.density * box.extents.x * box.extents.y;
 				massData.center.Set(0.0, 0.0);
 				massData.I = massData.mass / 3.0 * b2Math.b2Dot(box.extents, box.extents);
@@ -77,6 +98,7 @@ b2ShapeDef.prototype = {
 			massData.I = 0.0;
 			break;
 		}
+		sys.log('mass:'+massData.mass+this.type);
 	},
 
 	type: 0,

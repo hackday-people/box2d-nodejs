@@ -16,6 +16,10 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Joint = require("./b2Joint");
+var b2JointNode = require("./b2JointNode");
+module.exports = b2DistanceJoint;
 
 
 // C = norm(p2 - p1) - L
@@ -25,7 +29,7 @@
 // K = J * invM * JT
 //   = invMass1 + invI1 * cross(r1, u)^2 + invMass2 + invI2 * cross(r2, u)^2
 
-var b2DistanceJoint = function(def) {
+function b2DistanceJoint(def) {
   // The constructor for b2Joint
   // initialize instance variables for references
   this.m_node1 = new b2JointNode();

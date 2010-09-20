@@ -16,10 +16,21 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var sys = require("sys");
+
+var b2Settings = require("../common/b2Settings");
+var b2Math = require("../common/math/b2Math");
+var b2MassData = require("../collision/shapes/b2MassData");
+var b2Vec2 = require("../common/math/b2Vec2");
+var b2Mat22 = require("../common/math/b2Mat22");
+var b2Shape = require("../collision/shapes/b2Shape");
+var b2PolyShape = require("../collision/shapes/b2PolyShape");
+module.exports = b2Body;
+
 // A rigid body. Internal computation are done in terms
 // of the center of mass position. The center of mass may
 // be offset from the body's origin.
-var b2Body = function(bd, world) {
+function b2Body(bd, world) {
   // initialize instance variables for references
   this.sMat0 = new b2Mat22();
   this.m_position = new b2Vec2();

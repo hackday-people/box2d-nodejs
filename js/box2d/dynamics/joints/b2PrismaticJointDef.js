@@ -16,7 +16,12 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-var b2PrismaticJointDef = function() {
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Joint = require("./b2Joint");
+var b2JointDef = require("./b2JointDef");
+module.exports = b2PrismaticJointDef;
+
+function b2PrismaticJointDef() {
   // The constructor for b2JointDef
   this.type = b2Joint.e_unknownJoint;
   this.userData = null;

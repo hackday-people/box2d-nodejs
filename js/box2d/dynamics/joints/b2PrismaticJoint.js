@@ -16,8 +16,14 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Math = require("../../common/math/b2Math");
+var b2Joint = require("./b2Joint");
+var b2JointNode = require("./b2JointNode");
+var b2Jacobian = require("./b2Jacobian");
 
 
+module.exports = b2PrismaticJoint;
 
 
 // Linear constraint (point-to-line)
@@ -38,7 +44,7 @@
 // J = [-ax1 -cross(d+r1,ax1) ax1 cross(r2,ax1)]
 
 
-var b2PrismaticJoint = function(def){
+function b2PrismaticJoint(def){
   // The constructor for b2Joint
   // initialize instance variables for references
   this.m_node1 = new b2JointNode();
@@ -359,7 +365,8 @@ Object.extend(b2PrismaticJoint.prototype, {
 			this.m_limitImpulse = 0.0;
 		}
 
-		if (b2World.s_enableWarmStarting)
+		//NODEJS - b2World.s_enableWarmStarting is always true
+		if (true)
 		{
 			//b2Vec2 P1 = this.m_linearImpulse * this.m_linearJacobian.linear1 + (this.m_motorImpulse + this.m_limitImpulse) * this.m_motorJacobian.linear1;
 			var P1X = this.m_linearImpulse * this.m_linearJacobian.linear1.x + (this.m_motorImpulse + this.m_limitImpulse) * this.m_motorJacobian.linear1.x;

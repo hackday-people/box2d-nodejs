@@ -17,12 +17,13 @@
 */
 
 
+var b2Vec2 = require("../common/math/b2Vec2");
 
 // A manifold for two touching convex shapes.
-var b2AABB = function() {
-		// initialize instance variables for references
-		this.minVertex = new b2Vec2();
-		this.maxVertex = new b2Vec2();
+function b2AABB() {
+	// initialize instance variables for references
+	this.minVertex = new b2Vec2();
+	this.maxVertex = new b2Vec2();
 };
 
 b2AABB.prototype = 
@@ -43,3 +44,6 @@ b2AABB.prototype =
 	minVertex: new b2Vec2(),
 	maxVertex: new b2Vec2()
 };
+
+module.exports = b2AABB;
+

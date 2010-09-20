@@ -16,11 +16,14 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2JointDef = require("./b2JointDef");
+module.exports = b2SpringJointDef;
 
 
 
 
-var b2SpringJointDef = function(a_body1, a_body2, a_strength) {
+function b2SpringJointDef(a_body1, a_body2, a_strength) {
   // The constructor for b2JointDef
   this.type = b2Joint.e_springJoint;
   this.userData = null;

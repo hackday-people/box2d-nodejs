@@ -17,8 +17,9 @@
 */
 
 
+module.exports = b2BoundValues;
 
-var b2BoundValues = function() {
+function b2BoundValues() {
 		// initialize instance variables for references
 		this.lowerValues = [0,0];
 		this.upperValues = [0,0];

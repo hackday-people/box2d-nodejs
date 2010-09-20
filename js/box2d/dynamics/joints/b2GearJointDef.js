@@ -18,6 +18,9 @@
 
 
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2JointDef = require("./b2JointDef");
+module.exports = b2GearJointDef;
 
 
 
@@ -32,7 +35,7 @@
 // RESTRICITON: The revolute and prismatic joints must be attached to
 // a fixed body (which must be body1 on those joints).
 
-var b2GearJointDef = function() {
+function b2GearJointDef() {
   this.type = b2Joint.e_gearJoint;
   this.joint1 = null;
   this.joint2 = null;

@@ -16,9 +16,10 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+module.exports = Features;
 
 // We use contact ids to facilitate warm starting.
-var Features = function() {};
+function Features() {};
 
 Features.prototype = 
 {

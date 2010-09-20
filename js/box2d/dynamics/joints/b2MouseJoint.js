@@ -16,8 +16,13 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Mat22 = require("../../common/math/b2Mat22");
+var b2Joint = require("./b2Joint");
+var b2JointNode = require("./b2JointNode");
 
 
+module.exports = b2MouseJoint;
 
 
 // p = attached point, m = mouse point
@@ -28,7 +33,7 @@
 // Identity used:
 // w k % (rx i + ry j) = w * (-ry i + rx j)
 
-var b2MouseJoint = function(def){
+function b2MouseJoint(def){
   // The constructor for b2Joint
   // initialize instance variables for references
   this.m_node1 = new b2JointNode();

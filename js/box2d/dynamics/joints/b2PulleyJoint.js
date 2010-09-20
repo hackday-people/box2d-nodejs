@@ -16,8 +16,13 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Joint = require("./b2Joint");
+var b2JointNode = require("./b2JointNode");
 
-var b2PulleyJoint = function(def) {
+module.exports = b2PulleyJoint;
+
+function b2PulleyJoint(def) {
   // The constructor for b2Joint
   // initialize instance variables for references
   this.m_node1 = new b2JointNode();

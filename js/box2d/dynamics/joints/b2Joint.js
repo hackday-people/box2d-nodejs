@@ -17,10 +17,21 @@
 */
 
 
+var b2JointDef = require("./b2JointDef");
+var b2JointNode = require("./b2JointNode");
+var b2DistanceJoint = require("./b2DistanceJoint");
+var b2GearJoint = require("./b2GearJoint");
+var b2Jacobian = require("./b2Jacobian");
+var b2MouseJoint = require("./b2MouseJoint");
+var b2PrismaticJoint = require("./b2PrismaticJoint");
+var b2PulleyJoint = require("./b2PulleyJoint");
+var b2RevoluteJoint = require("./b2RevoluteJoint");
+var b2SpringJoint = require("./b2SpringJoint");
+module.exports = b2Joint;
 
 
 
-var b2Joint = function(def){
+function b2Joint(def){
   // initialize instance variables for references
   this.m_node1 = new b2JointNode();
   this.m_node2 = new b2JointNode();

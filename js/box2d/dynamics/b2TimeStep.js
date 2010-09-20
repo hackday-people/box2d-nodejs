@@ -17,8 +17,9 @@
 */
 
 
+module.exports = b2TimeStep;
 
-var b2TimeStep = function(){};
+function b2TimeStep(){};
 
 b2TimeStep.prototype = 
 {

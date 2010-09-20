@@ -16,10 +16,12 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var Features = require("./Features");
+module.exports = b2ContactID;
 
 
 // We use contact ids to facilitate warm starting.
-var b2ContactID = function(){
+function b2ContactID(){
   // initialize instance variables for references
   this.features = new Features();
   this.features._m_id = this;

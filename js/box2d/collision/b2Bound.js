@@ -17,8 +17,9 @@
 */
 
 
+module.exports = b2Bound;
 
-var b2Bound = function() {};
+function b2Bound() {};
 b2Bound.prototype = {
 	IsLower: function(){ return (this.value & 1) == 0; },
 	IsUpper: function(){ return (this.value & 1) == 1; },

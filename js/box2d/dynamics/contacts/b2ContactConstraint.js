@@ -17,10 +17,11 @@
 */
 
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+module.exports = b2ContactConstraint;
 
 
-
-var b2ContactConstraint = function(){
+function b2ContactConstraint(){
   // initialize instance variables for references
   this.normal = new b2Vec2();
   //

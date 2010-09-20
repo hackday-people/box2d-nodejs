@@ -17,6 +17,9 @@
 */
 
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2JointDef = require("./b2JointDef");
+module.exports = b2PulleyJointDef;
 
 
 
@@ -28,7 +31,7 @@
 // The pulley also enforces a maximum length limit on both sides. This is
 // useful to prevent one side of the pulley hitting the top.
 
-var b2PulleyJointDef = function() {
+function b2PulleyJointDef() {
   // The constructor for b2JointDef
   this.type = b2Joint.e_unknownJoint;
   this.userData = null;

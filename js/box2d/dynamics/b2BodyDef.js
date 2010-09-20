@@ -16,7 +16,10 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-var b2BodyDef = function() {
+var b2Vec2 = require("../common/math/b2Vec2");
+module.exports = b2BodyDef;
+
+function b2BodyDef() {
   // initialize instance variables for references
   this.shapes = new Array();
   //

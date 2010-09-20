@@ -15,7 +15,12 @@
 * misrepresented the original software.
 * 3. This notice may not be removed or altered from any source distribution.
 */
-var b2NullContact = function(s1, s2) {
+
+var b2Contact = require("./b2Contact");
+var b2ContactNode = require("./b2ContactNode");
+module.exports = b2NullContact;
+
+function b2NullContact(s1, s2) {
   // The constructor for b2Contact
   // initialize instance variables for references
   this.m_node1 = new b2ContactNode();

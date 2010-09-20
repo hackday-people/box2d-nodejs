@@ -16,8 +16,11 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2JointDef = require("./b2JointDef");
+module.exports = b2DistanceJointDef;
 
-var b2DistanceJointDef = function() {
+function b2DistanceJointDef() {
   // The constructor for b2JointDef
   this.type = b2Joint.e_unknownJoint;
   this.userData = null;

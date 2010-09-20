@@ -16,11 +16,11 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2ContactID = require("./b2ContactID");
+var b2Vec2 = require("../common/math/b2Vec2");
+module.exports = ClipVertex;
 
-
-
-
-var ClipVertex = function() {
+function ClipVertex() {
   // initialize instance variables for references
   this.v = new b2Vec2();
   this.id = new b2ContactID();

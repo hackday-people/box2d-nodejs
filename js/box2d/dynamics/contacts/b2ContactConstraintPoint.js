@@ -16,8 +16,11 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+module.exports = b2ContactConstraintPoint;
 
-var b2ContactConstraintPoint = function() {
+
+function b2ContactConstraintPoint() {
   // initialize instance variables for references
   this.localAnchor1 = new b2Vec2();
   this.localAnchor2 = new b2Vec2();

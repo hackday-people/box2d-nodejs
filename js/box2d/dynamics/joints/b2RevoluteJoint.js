@@ -16,8 +16,16 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var sys = require("sys");
 
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Mat22 = require("../../common/math/b2Mat22");
+var b2Math = require("../../common/math/b2Math");
+var b2Joint = require("./b2Joint");
+var b2JointNode = require("./b2JointNode");
+
+module.exports = b2RevoluteJoint;
 
 
 // Point-to-point constraint
@@ -33,7 +41,7 @@
 // J = [0 0 -1 0 0 1]
 // K = invI1 + invI2
 
-var b2RevoluteJoint = function(def){
+function b2RevoluteJoint(def){
   // The constructor for b2Joint
   // initialize instance variables for references
   this.m_node1 = new b2JointNode();
@@ -96,6 +104,8 @@ var b2RevoluteJoint = function(def){
   this.anchor2Coord  = this.m_localAnchor2.Copy();
 };
 
+//NODEJS - TODO.  Will this extend really work - this is the basis of our inheritance
+sys.log('extending---------------'+b2Joint.prototype+' '+b2RevoluteJoint.prototype);
 Object.extend(b2RevoluteJoint.prototype, b2Joint.prototype);
 Object.extend(b2RevoluteJoint.prototype, 
 {
@@ -251,7 +261,9 @@ Object.extend(b2RevoluteJoint.prototype,
 		}
 
 		// Warm starting.
-		if (b2World.s_enableWarmStarting)
+		
+		//NODEJS - b2World.s_enableWarmStarting is always true
+		if (true)
 		{
 			//b1.m_linearVelocity.Subtract( b2Math.MulFV( invMass1, this.m_ptpImpulse) );
 			b1.m_linearVelocity.x -= invMass1 * this.m_ptpImpulse.x;

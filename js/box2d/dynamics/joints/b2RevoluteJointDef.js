@@ -17,11 +17,15 @@
 */
 
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Joint = require("./b2Joint");
+var b2JointDef = require("./b2JointDef");
+module.exports = b2RevoluteJointDef;
 
 
 
 
-var b2RevoluteJointDef = function() {
+function b2RevoluteJointDef() {
   // The constructor for b2JointDef
   this.type = b2Joint.e_unknownJoint;
   this.userData = null;

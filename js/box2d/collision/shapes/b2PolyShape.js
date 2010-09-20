@@ -16,7 +16,14 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Mat22 = require("../../common/math/b2Mat22");
+var b2OBB = require("../b2OBB");
+var b2Shape = require("./b2Shape");
+var b2Pair = require("../b2Pair");
+var b2AABB = require("../b2AABB");
+Object.extend = require("../../object.extend").extend;
+module.exports = b2PolyShape;
 
 
 
@@ -28,7 +35,7 @@
 // the polygon position is centered on the polygon centroid. This simplifies
 // some collision algorithms.
 
-var b2PolyShape = function(def, body, newOrigin) {
+function b2PolyShape(def, body, newOrigin) {
   // initialize instance variables for references
   this.m_R = new b2Mat22();
   this.m_position = new b2Vec2();
@@ -114,7 +121,8 @@ var b2PolyShape = function(def, body, newOrigin) {
     var poly = def;
 
     this.m_vertexCount = poly.vertexCount;
-    b2Shape.PolyCentroid(poly.vertices, poly.vertexCount, b2PolyShape.tempVec);
+// TODO: NODEJS
+//    b2Shape.PolyCentroid(poly.vertices, poly.vertexCount, b2PolyShape.tempVec);
     var centroidX = b2PolyShape.tempVec.x;
     var centroidY = b2PolyShape.tempVec.y;
     this.m_localCentroid.x = def.localPosition.x + (localR.col1.x * centroidX + localR.col2.x * centroidY) - newOrigin.x;

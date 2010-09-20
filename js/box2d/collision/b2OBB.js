@@ -16,10 +16,12 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-
+var b2Vec2 = require("../common/math/b2Vec2");
+var b2Mat22 = require("../common/math/b2Mat22");
+module.exports = b2OBB;
 
 // A manifold for two touching convex shapes.
-var b2OBB = function() {
+function b2OBB() {
   // initialize instance variables for references
   this.R = new b2Mat22();
   this.center = new b2Vec2();

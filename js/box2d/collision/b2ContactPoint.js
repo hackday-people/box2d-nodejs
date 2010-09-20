@@ -16,8 +16,13 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../common/math/b2Vec2");
+var b2ContactID = require("./b2ContactID");
+var Features = require("./Features");
+module.exports = b2ContactPoint;
+
 // We use contact ids to facilitate warm starting.
-var b2ContactPoint = function() {
+function b2ContactPoint() {
   // initialize instance variables for references
   this.position = new b2Vec2();
   this.id = new b2ContactID();

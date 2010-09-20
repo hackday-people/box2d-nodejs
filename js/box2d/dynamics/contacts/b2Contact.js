@@ -16,7 +16,10 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-var b2Contact = function(s1, s2) {
+var b2ContactNode = require("./b2ContactNode");
+module.exports = b2Contact;
+
+function b2Contact(s1, s2) {
   // initialize instance variables for references
   this.m_node1 = new b2ContactNode();
   this.m_node2 = new b2ContactNode();

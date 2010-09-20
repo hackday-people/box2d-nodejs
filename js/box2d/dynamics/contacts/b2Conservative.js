@@ -16,11 +16,14 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Mat22 = require("../../common/math/b2Mat22");
+module.exports = b2Conservative;
 
 
 
 
-var b2Conservative = function() {};
+function b2Conservative() {};
 
 // Temp vars
 b2Conservative.R1 = new b2Mat22();

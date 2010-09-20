@@ -17,10 +17,12 @@
 */
 
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+
+module.exports = b2Jacobian;
 
 
-
-var b2Jacobian = function() {
+function b2Jacobian() {
 		// initialize instance variables for references
 		this.linear1 = new b2Vec2();
 		this.linear2 = new b2Vec2();

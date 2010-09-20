@@ -16,9 +16,15 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Mat22 = require("../../common/math/b2Mat22");
+var b2ShapeDef = require("./b2ShapeDef");
+var b2PolyShape = require("./b2PolyShape");
+var b2CircleShape = require("./b2CircleShape");
+
 // Shapes are created automatically when a body is created.
 // Client code does not normally interact with shapes.
-var b2Shape = function(def, body) {
+function b2Shape(def, body) {
   // initialize instance variables for references
   this.m_R = new b2Mat22();
   this.m_position = new b2Vec2();
@@ -122,26 +128,6 @@ b2Shape.prototype = {
 };
 
 
-b2Shape.Create = function(def, body, center) {
-		switch (def.type)
-		{
-		case b2Shape.e_circleShape:
-			{
-				//void* mem = body->m_world->m_blockAllocator.Allocate(sizeof(b2CircleShape));
-				return new b2CircleShape(def, body, center);
-			}
-
-		case b2Shape.e_boxShape:
-		case b2Shape.e_polyShape:
-			{
-				//void* mem = body->m_world->m_blockAllocator.Allocate(sizeof(b2PolyShape));
-				return new b2PolyShape(def, body, center);
-			}
-		}
-
-		//b2Settings.b2Assert(false);
-		return null;
-	};
 b2Shape.Destroy = function(shape) {
 		/*b2BlockAllocator& allocator = shape->m_body->m_world->m_blockAllocator;
 
@@ -309,3 +295,24 @@ b2Shape.PolyCentroid = function(vs, count, out) {
 		//return c;
 		out.Set(cX, cY);
 	};
+b2Shape.Create = function(def, body, center) {
+		switch (def.type)
+		{
+		case b2Shape.e_circleShape:
+			{
+				//void* mem = body->m_world->m_blockAllocator.Allocate(sizeof(b2CircleShape));
+				return new b2CircleShape(def, body, center);
+			}
+
+		case b2Shape.e_boxShape:
+		case b2Shape.e_polyShape:
+			{
+				//void* mem = body->m_world->m_blockAllocator.Allocate(sizeof(b2PolyShape));
+				return new b2PolyShape(def, body, center);
+			}
+		}
+
+		//b2Settings.b2Assert(false);
+		return null;
+	};
+module.exports = b2Shape;

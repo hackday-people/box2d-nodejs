@@ -17,7 +17,10 @@
 */
 
 
-var b2Vec2 = function (x_,y_) {
+module.exports = b2Vec2;
+
+function b2Vec2 (x_,y_) {
+    var b2Math = require("./b2Math");
 	this.x=x_; this.y=y_;
 };
 
@@ -124,4 +127,5 @@ b2Vec2.prototype = {
 	x: null,
 	y: null
 };
+
 

@@ -16,7 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-var b2ContactNode = function() {};
+module.exports = b2ContactNode;
+
+function b2ContactNode() {};
 
 b2ContactNode.prototype = {
 	other: null,

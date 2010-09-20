@@ -16,10 +16,10 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+module.exports = b2Collision;
+var b2Vec2 = require("../common/math/b2Vec2");
 
-
-
-var b2Collision = function() {};
+function b2Collision() {};
 
 b2Collision.prototype = {
 

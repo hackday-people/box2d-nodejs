@@ -17,10 +17,13 @@
 */
 
 
+var b2PairCallback = require("../collision/b2PairCallback");
+var b2NullContact = require("./contacts/b2NullContact");
+module.exports = b2ContactManager;
 
 
 
-var b2ContactManager = function(){
+function b2ContactManager(){
   // The constructor for b2PairCallback
   //
 

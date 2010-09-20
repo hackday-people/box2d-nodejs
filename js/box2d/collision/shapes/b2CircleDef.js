@@ -16,8 +16,12 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2ShapeDef = require("./b2ShapeDef");
+Object.extend = require("../../object.extend").extend;
+module.exports = b2CircleDef;
 
-var b2CircleDef = function() {
+function b2CircleDef() {
   // The constructor for b2ShapeDef
   this.type = b2Shape.e_unknownShape;
   this.userData = null;

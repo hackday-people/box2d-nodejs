@@ -16,8 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+module.exports = b2ContactRegister;
 
-var b2ContactRegister = function() {};
+function b2ContactRegister() {};
 
 b2ContactRegister.prototype = {
 	createFcn: null,

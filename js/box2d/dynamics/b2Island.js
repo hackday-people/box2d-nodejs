@@ -16,7 +16,13 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var sys = require("sys");
 
+var b2Math = require("../common/math/b2Math");
+var b2ContactSolver = require("./contacts/b2ContactSolver");
+var b2Body = require("./b2Body");
+
+module.exports = b2Island;
 
 
 
@@ -100,7 +106,7 @@ Baumgarte method in performance critical scenarios.
 */
 
 
-var b2Island = function(bodyCapacity, contactCapacity, jointCapacity, allocator) {
+function b2Island(bodyCapacity, contactCapacity, jointCapacity, allocator) {
   var i = 0;
 
   this.m_bodyCapacity = bodyCapacity;
@@ -149,6 +155,7 @@ b2Island.prototype =
 		{
 			b = this.m_bodies[i];
 
+		  sys.log('solving body'+b.m_invMass);
 			if (b.m_invMass == 0.0)
 				continue;
 
@@ -161,6 +168,8 @@ b2Island.prototype =
 
 			// Store positions for conservative advancement.
 			b.m_position0.SetV(b.m_position);
+		  sys.log('solving body');
+		  sys.log('solving body'+b.m_position0);
 			b.m_rotation0 = b.m_rotation;
 		}
 
@@ -207,7 +216,9 @@ b2Island.prototype =
 		}
 
 		// this.Solve position constraints.
-		if (b2World.s_enablePositionCorrection)
+		
+		// NODEJS b2World.s_enablePositionCorrection is always true
+		if (true)
 		{
 			for (b2Island.m_positionIterationCount = step.iterations; b2Island.m_positionIterationCount--;)
 			{

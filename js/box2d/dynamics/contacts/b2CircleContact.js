@@ -16,8 +16,12 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Contact = require("./b2Contact");
+var b2Manifold = require("../../collision/b2Manifold");
 
-var b2CircleContact = function(s1, s2) {
+module.exports = b2CircleContact;
+
+function b2CircleContact(s1, s2) {
   // The constructor for b2Contact
   // initialize instance variables for references
   this.m_node1 = new b2ContactNode();

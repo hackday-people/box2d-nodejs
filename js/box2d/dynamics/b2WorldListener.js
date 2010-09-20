@@ -16,7 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-var b2WorldListener = function() {};
+module.exports = b2WorldListener;
+
+function b2WorldListener() {};
 
 b2WorldListener.prototype = {
 

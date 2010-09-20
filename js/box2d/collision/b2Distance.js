@@ -16,9 +16,11 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../common/math/b2Vec2");
+module.exports = b2Distance;
 
 
-var b2Distance = function() {};
+function b2Distance() {};
 
 b2Distance.prototype = 
 {

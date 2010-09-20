@@ -16,9 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+module.exports = b2BufferedPair;
 
-
-var b2BufferedPair = function() {};
+function b2BufferedPair() {};
 b2BufferedPair.prototype = {
 	proxyId1: 0,
 	proxyId2: 0

@@ -16,7 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-var b2Proxy = function() {
+module.exports = b2Proxy;
+
+function b2Proxy() {
 		// initialize instance variables for references
 		this.lowerBounds = [/*uint*/(0), /*uint*/(0)];
 		this.upperBounds = [/*uint*/(0), /*uint*/(0)];

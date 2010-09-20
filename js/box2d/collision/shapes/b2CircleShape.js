@@ -16,7 +16,12 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-var b2CircleShape = function(def, body, localCenter) {
+var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Shape = require("./b2Shape");
+Object.extend = require("../../object.extend").extend;
+module.exports = b2CircleShape;
+
+function b2CircleShape(def, body, localCenter) {
   // initialize instance variables for references
   this.m_R = new b2Mat22();
   this.m_position = new b2Vec2();

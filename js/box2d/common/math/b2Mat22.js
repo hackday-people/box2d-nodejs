@@ -16,11 +16,11 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("./b2Vec2");
 
+module.exports = b2Mat22;
 
-
-
-var b2Mat22 = function(angle, c1, c2) {
+function b2Mat22(angle, c1, c2) {
   if (angle==null) angle = 0;
   // initialize instance variables for references
   this.col1 = new b2Vec2();
@@ -124,6 +124,9 @@ b2Mat22.prototype =
 		this.col2.Abs();
 	},
 
-	col1: new b2Vec2(),
-	col2: new b2Vec2()
+//	col1: new b2Vec2(),
+//	col2: new b2Vec2()
 };
+b2Mat22.prototype.col1 = new b2Vec2();
+b2Mat22.prototype.col2 = new b2Vec2();
+

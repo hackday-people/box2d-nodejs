@@ -20,11 +20,14 @@
 // of overlapping proxies. It is based closely on code provided by Pierre Terdiman.
 // http:
 
+var b2Pair = require("./b2Pair");
+var b2BufferedPair = require("./b2BufferedPair");
+module.exports = b2PairManager;
 
 
 
 
-var b2PairManager = function() {
+function b2PairManager() {
   var i = 0;
   //b2Settings.b2Assert(b2Math.b2IsPowerOfTwo(b2Pair.b2_tableCapacity) == true);
   //b2Settings.b2Assert(b2Pair.b2_tableCapacity >= b2Settings.b2_maxPairs);
@@ -102,10 +105,11 @@ b2PairManager.prototype = {
 		// Confirm this pair for the subsequent call to this.Commit.
 		pair.ClearRemoved();
 
-		if (b2BroadPhase.s_validate)
-		{
-			this.ValidateBuffer();
-		}
+// NODEJS:  b2BroadPhase.s_validate is always false
+//		if (b2BroadPhase.s_validate)
+//		{
+//			this.ValidateBuffer();
+//		}
 	},
 
 	// Buffer a pair for removal.
@@ -137,10 +141,11 @@ b2PairManager.prototype = {
 
 		pair.SetRemoved();
 
-		if (b2BroadPhase.s_validate)
-		{
-			this.ValidateBuffer();
-		}
+// NODEJS:  b2BroadPhase.s_validate is always false
+//		if (b2BroadPhase.s_validate)
+//		{
+//			this.ValidateBuffer();
+//		}
 	},
 
 	Commit: function(){
@@ -198,10 +203,11 @@ b2PairManager.prototype = {
 
 		this.m_pairBufferCount = 0;
 
-		if (b2BroadPhase.s_validate)
-		{
-			this.ValidateTable();
-		}
+// NODEJS:  b2BroadPhase.s_validate is always false
+//		if (b2BroadPhase.s_validate)
+//		{
+//			this.ValidateTable();
+//		}
 	},
 
 //private:

@@ -16,7 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-var b2CollisionFilter = function() {};
+module.exports = b2CollisionFilter;
+
+function b2CollisionFilter() {};
 b2CollisionFilter.prototype = {
 
 	// Return true if contact calculations should be performed between these two shapes.

@@ -21,10 +21,12 @@
 // http:
 
 
+var b2Settings = require("../common/b2Settings");
+module.exports = b2Pair;
 
 
 
-var b2Pair = function() {};
+function b2Pair() {};
 
 b2Pair.prototype = 
 {

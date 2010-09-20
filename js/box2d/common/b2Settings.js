@@ -48,7 +48,7 @@ b2Settings.prototype = {
 	initialize: function() {}
 };
 */
-var b2Settings = {};
+module.exports = b2Settings = {};
 
 b2Settings.USHRT_MAX = 0x0000ffff;
 b2Settings.b2_pi = Math.PI;

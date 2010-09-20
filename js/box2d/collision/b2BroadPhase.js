@@ -17,7 +17,13 @@
 */
 
 
-
+var b2Bound = require("./b2Bound");
+var b2Proxy = require("./b2Proxy");
+var b2Pair = require("./b2Pair");
+var b2PairManager = require("./b2PairManager");
+var b2Vec2 = require("../common/math/b2Vec2");
+var b2Math = require("../common/math/b2Math");
+module.exports = b2BroadPhase;
 
 
 /*
@@ -40,7 +46,7 @@ Bullet (http:/www.bulletphysics.com).
 // - no broadphase is perfect and neither is this one: it is not great for huge
 //   worlds (use a multi-SAP instead), it is not great for large objects.
 
-var b2BroadPhase = function(worldAABB, callback){
+function b2BroadPhase(worldAABB, callback){
   // initialize instance variables for references
   this.m_pairManager = new b2PairManager();
   this.m_proxyPool = new Array(b2Settings.b2_maxPairs);
@@ -852,6 +858,7 @@ b2BroadPhase.prototype = {
 	},
 
 //public:
+
 	m_pairManager: new b2PairManager(),
 
 	m_proxyPool: new Array(b2Settings.b2_maxPairs),
@@ -863,6 +870,7 @@ b2BroadPhase.prototype = {
 	m_queryResultCount: 0,
 
 	m_worldAABB: null,
+
 	m_quantizationFactor: new b2Vec2(),
 	m_proxyCount: 0,
 	m_timeStamp: 0

@@ -17,10 +17,13 @@
 */
 
 
+var b2Contact = require("./b2Contact");
+var b2Manifold = require("../../collision/b2Manifold");
+module.exports = b2PolyContact;
 
 
 
-var b2PolyContact = function(s1, s2) {
+function b2PolyContact(s1, s2) {
   // The constructor for b2Contact
   // initialize instance variables for references
   this.m_node1 = new b2ContactNode();

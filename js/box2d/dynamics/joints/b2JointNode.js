@@ -17,10 +17,11 @@
 */
 
 
+module.exports = b2JointNode;
 
 
 
-var b2JointNode = function() {};
+function b2JointNode() {};
 
 b2JointNode.prototype = 
 {

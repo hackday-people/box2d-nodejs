@@ -16,11 +16,13 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../../common/math/b2Vec2");
+module.exports = b2ContactSolver;
 
 
 
 
-var b2ContactSolver = function(contacts, contactCount, allocator) {
+function b2ContactSolver(contacts, contactCount, allocator) {
   // initialize instance variables for references
   this.m_constraints = new Array();
   //

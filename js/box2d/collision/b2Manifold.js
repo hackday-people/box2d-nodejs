@@ -16,10 +16,13 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Vec2 = require("../common/math/b2Vec2");
+var b2ContactPoint = require("./b2ContactPoint");
+module.exports = b2Manifold;
 
 
 // A manifold for two touching convex shapes.
-var b2Manifold = function(){
+function b2Manifold(){
   this.points = new Array(b2Settings.b2_maxManifoldPoints);
   for (var i = b2Settings.b2_maxManifoldPoints; i--;){
     this.points[i] = new b2ContactPoint();
