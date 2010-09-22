@@ -18,7 +18,10 @@
 
 
 var b2Contact = require("./b2Contact");
+var b2Collision = require("../../collision/b2Collision");
+var b2ContactNode = require("./b2ContactNode");
 var b2Manifold = require("../../collision/b2Manifold");
+var b2Math = require("../../common/math/b2Math");
 module.exports = b2PolyContact;
 
 

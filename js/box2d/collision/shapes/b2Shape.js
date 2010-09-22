@@ -19,7 +19,7 @@
 var b2Vec2 = require("../../common/math/b2Vec2");
 var b2Mat22 = require("../../common/math/b2Mat22");
 var b2ShapeDef = require("./b2ShapeDef");
-var b2PolyShape = require("./b2PolyShape");
+var b2Pair = require("../b2Pair");
 var b2CircleShape = require("./b2CircleShape");
 
 // Shapes are created automatically when a body is created.
@@ -308,6 +308,7 @@ b2Shape.Create = function(def, body, center) {
 		case b2Shape.e_polyShape:
 			{
 				//void* mem = body->m_world->m_blockAllocator.Allocate(sizeof(b2PolyShape));
+				var b2PolyShape = require("./b2PolyShape");
 				return new b2PolyShape(def, body, center);
 			}
 		}

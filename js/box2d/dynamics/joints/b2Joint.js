@@ -23,9 +23,7 @@ var b2DistanceJoint = require("./b2DistanceJoint");
 var b2GearJoint = require("./b2GearJoint");
 var b2Jacobian = require("./b2Jacobian");
 var b2MouseJoint = require("./b2MouseJoint");
-var b2PrismaticJoint = require("./b2PrismaticJoint");
 var b2PulleyJoint = require("./b2PulleyJoint");
-var b2RevoluteJoint = require("./b2RevoluteJoint");
 var b2SpringJoint = require("./b2SpringJoint");
 module.exports = b2Joint;
 
@@ -139,6 +137,7 @@ b2Joint.Create = function(def){
 		case b2Joint.e_prismaticJoint:
 			{
 				//void* mem = allocator->Allocate(sizeof(b2PrismaticJoint));
+				var b2PrismaticJoint = require("./b2PrismaticJoint");
 				joint = new b2PrismaticJoint(def);
 			}
 			break;
@@ -146,6 +145,7 @@ b2Joint.Create = function(def){
 		case b2Joint.e_revoluteJoint:
 			{
 				//void* mem = allocator->Allocate(sizeof(b2RevoluteJoint));
+				var b2RevoluteJoint = require("./b2RevoluteJoint");
 				joint = new b2RevoluteJoint(def);
 			}
 			break;

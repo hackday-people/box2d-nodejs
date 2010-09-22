@@ -20,7 +20,6 @@ var sys = require("sys");
 
 var b2Vec2 = require("../../common/math/b2Vec2");
 var b2Math = require("../../common/math/b2Math");
-var b2Shape = require("./b2Shape");
 module.exports = b2ShapeDef;
 
 function b2ShapeDef() {
@@ -45,14 +44,6 @@ b2ShapeDef.prototype = {
 	ComputeMass: function(massData)
 	{
 
-//NODEJS added
-this.e_unknownShape = -1;
-this.e_circleShape = 0;
-this.e_boxShape = 1;
-this.e_polyShape = 2;
-this.e_meshShape = 3;
-this.e_shapeTypeCount = 4;
-
 		massData.center = new b2Vec2(0.0, 0.0)
 
 		if (this.density == 0.0)
@@ -62,7 +53,7 @@ this.e_shapeTypeCount = 4;
 			massData.I = 0.0;
 		};
 
-				sys.log('BOX?'+this.type+' '+this.e_boxShape);
+		var b2Shape = require("./b2Shape");
 		switch (this.type)
 		{
 		case b2Shape.e_circleShape:
@@ -74,11 +65,9 @@ this.e_shapeTypeCount = 4;
 			}
 			break;
 
-		case this.e_boxShape:
-				sys.log('BOX');
+		case b2Shape.e_boxShape:
 			{
 				var box = this;
-				sys.log('BOX');
 				massData.mass = 4.0 * this.density * box.extents.x * box.extents.y;
 				massData.center.Set(0.0, 0.0);
 				massData.I = massData.mass / 3.0 * b2Math.b2Dot(box.extents, box.extents);
@@ -98,7 +87,6 @@ this.e_shapeTypeCount = 4;
 			massData.I = 0.0;
 			break;
 		}
-		sys.log('mass:'+massData.mass+this.type);
 	},
 
 	type: 0,

@@ -16,7 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Shape = require("../../collision/shapes/b2Shape");
 var b2ContactNode = require("./b2ContactNode");
+var b2ContactRegister = require("./b2ContactRegister");
 module.exports = b2Contact;
 
 function b2Contact(s1, s2) {
@@ -131,6 +133,9 @@ b2Contact.InitializeRegisters = function(){
 			}
 		}
 
+		var b2CircleContact = require("./b2CircleContact");
+		var b2PolyAndCircleContact = require("./b2PolyAndCircleContact");
+		var b2PolyContact = require("./b2PolyContact");
 		b2Contact.AddType(b2CircleContact.Create, b2CircleContact.Destroy, b2Shape.e_circleShape, b2Shape.e_circleShape);
 		b2Contact.AddType(b2PolyAndCircleContact.Create, b2PolyAndCircleContact.Destroy, b2Shape.e_polyShape, b2Shape.e_circleShape);
 		b2Contact.AddType(b2PolyContact.Create, b2PolyContact.Destroy, b2Shape.e_polyShape, b2Shape.e_polyShape);

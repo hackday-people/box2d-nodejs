@@ -17,6 +17,9 @@
 */
 
 var b2Vec2 = require("../../common/math/b2Vec2");
+var b2Math = require("../../common/math/b2Math");
+var b2ContactConstraint = require("./b2ContactConstraint");
+
 module.exports = b2ContactSolver;
 
 
@@ -189,7 +192,8 @@ b2ContactSolver.prototype = {
 			var tangentY = -normalX;
 
 			var j = 0;
-			if (b2World.s_enableWarmStarting)
+			// NODEJS - b2World.s_enableWarmStarting is true
+			if (true)
 			{
 				for (j = c.pointCount; j--;)
 				{

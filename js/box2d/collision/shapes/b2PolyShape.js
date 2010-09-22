@@ -18,6 +18,7 @@
 
 var b2Vec2 = require("../../common/math/b2Vec2");
 var b2Mat22 = require("../../common/math/b2Mat22");
+var b2Math = require("../../common/math/b2Math");
 var b2OBB = require("../b2OBB");
 var b2Shape = require("./b2Shape");
 var b2Pair = require("../b2Pair");
@@ -121,8 +122,7 @@ function b2PolyShape(def, body, newOrigin) {
     var poly = def;
 
     this.m_vertexCount = poly.vertexCount;
-// TODO: NODEJS
-//    b2Shape.PolyCentroid(poly.vertices, poly.vertexCount, b2PolyShape.tempVec);
+    b2Shape.PolyCentroid(poly.vertices, poly.vertexCount, b2PolyShape.tempVec);
     var centroidX = b2PolyShape.tempVec.x;
     var centroidY = b2PolyShape.tempVec.y;
     this.m_localCentroid.x = def.localPosition.x + (localR.col1.x * centroidX + localR.col2.x * centroidY) - newOrigin.x;

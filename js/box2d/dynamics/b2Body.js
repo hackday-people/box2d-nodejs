@@ -269,7 +269,7 @@ b2Body.prototype = {
 		if (this.IsSleeping() == false)
 		{
 			this.m_linearVelocity.Add( b2Math.MulFV(this.m_invMass, impulse) );
-			this.m_angularVelocity += ( this.m_invI * b2Math.b2CrossVV( b2Math.SubtractVV(point, this.m_position), impulse)  );
+			this.m_angularVelocity += ( this.m_invI * b2Math.b2CrossVV( b2Math.SubtractVV(point, this.m_position), 	impulse)  );
 		}
 	},
 

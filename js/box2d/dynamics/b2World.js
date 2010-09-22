@@ -19,6 +19,7 @@
 var sys = require("sys");
 
 var b2Body = require("./b2Body");
+var b2Contact = require("./contacts/b2Contact");
 var b2Island = require("./b2Island");
 var b2Joint = require("./joints/b2Joint");
 var b2BodyDef = require("./b2BodyDef");
@@ -352,17 +353,15 @@ b2World.prototype = {
 		for (var k = this.m_bodyCount; k--;)
 			stack[k] = null;
 
-        sys.log('preloop');
 		for (var seed = this.m_bodyList; seed != null; seed = seed.m_next)
 		{
 //        sys.log(seed.m_flags +' '+ b2Body.e_staticFlag +' '+ b2Body.e_islandFlag +' '+ b2Body.e_sleepFlag +' '+ b2Body.e_frozenFlag);
-/*
+
 			if (seed.m_flags & (b2Body.e_staticFlag | b2Body.e_islandFlag | b2Body.e_sleepFlag | b2Body.e_frozenFlag))
 			{
 				continue;
 			}
-*/
-        sys.log('loop2');
+
 
 			// Reset island and stack.
 			island.Clear();
@@ -376,7 +375,6 @@ b2World.prototype = {
 				// Grab the next body off the stack and add it to the island.
 				b = stack[--stackCount];
 				island.AddBody(b);
-        sys.log(b);
 
 				// Make sure the body is awake.
 				b.m_flags &= ~b2Body.e_sleepFlag;
@@ -397,7 +395,6 @@ b2World.prototype = {
 					}
 
 					island.AddContact(cn.contact);
-        sys.log('add contact');
 					cn.contact.m_flags |= b2Contact.e_islandFlag;
 
 					other = cn.other;
@@ -420,7 +417,6 @@ b2World.prototype = {
 					}
 
 					island.AddJoint(jn.joint);
-        sys.log('add joint');
 					jn.joint.m_islandFlag = true;
 
 					other = jn.other;
@@ -436,7 +432,6 @@ b2World.prototype = {
 			}
 
 			island.Solve(this.step, this.m_gravity);
-        sys.log('solve ' + this.step.iterations + ' ' + this.m_gravity.y);
 
 			this.m_positionIterationCount = b2Math.b2Max(this.m_positionIterationCount, b2Island.m_positionIterationCount);
 

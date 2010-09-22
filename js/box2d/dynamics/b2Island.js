@@ -155,7 +155,6 @@ b2Island.prototype =
 		{
 			b = this.m_bodies[i];
 
-		  sys.log('solving body'+b.m_invMass);
 			if (b.m_invMass == 0.0)
 				continue;
 
@@ -168,8 +167,6 @@ b2Island.prototype =
 
 			// Store positions for conservative advancement.
 			b.m_position0.SetV(b.m_position);
-		  sys.log('solving body');
-		  sys.log('solving body'+b.m_position0);
 			b.m_rotation0 = b.m_rotation;
 		}
 
@@ -190,7 +187,9 @@ b2Island.prototype =
 
 			for (var j = this.m_jointCount; j--;)
 			{
+//sys.log('1:  '+this.m_joints[j].m_body1.m_angularVelocity+' '+this.m_joints[j].m_type);
 				this.m_joints[j].SolveVelocityConstraints(step);
+//sys.log('2:  '+this.m_joints[j].m_body1.m_angularVelocity);
 			}
 		}
 

@@ -15,6 +15,7 @@
 * misrepresented the original software.
 * 3. This notice may not be removed or altered from any source distribution.
 */
+var sys=require("sys");
 
 var b2Vec2 = require("./b2Vec2");
 

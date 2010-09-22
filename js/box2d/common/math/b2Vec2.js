@@ -20,7 +20,6 @@
 module.exports = b2Vec2;
 
 function b2Vec2 (x_,y_) {
-    var b2Math = require("./b2Math");
 	this.x=x_; this.y=y_;
 };
 
@@ -63,6 +62,7 @@ b2Vec2.prototype = {
 
 	MulTM: function(A)
 	{
+	    var b2Math = require("./b2Math");
 		var tX = b2Math.b2Dot(this, A.col1);
 		this.y = b2Math.b2Dot(this, A.col2);
 		this.x = tX;
@@ -121,6 +121,7 @@ b2Vec2.prototype = {
 
 	IsValid: function()
 	{
+	    var b2Math = require("./b2Math");
 		return b2Math.b2IsValid(this.x) && b2Math.b2IsValid(this.y);
 	},
 

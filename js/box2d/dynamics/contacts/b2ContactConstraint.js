@@ -18,6 +18,7 @@
 
 
 var b2Vec2 = require("../../common/math/b2Vec2");
+var b2ContactConstraintPoint = require("./b2ContactConstraintPoint");
 module.exports = b2ContactConstraint;
 
 

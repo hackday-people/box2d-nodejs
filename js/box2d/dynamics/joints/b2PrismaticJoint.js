@@ -16,6 +16,9 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var sys = require("sys");
+
+var b2Settings = require("../../common/b2Settings");
 var b2Vec2 = require("../../common/math/b2Vec2");
 var b2Math = require("../../common/math/b2Math");
 var b2Joint = require("./b2Joint");
@@ -416,6 +419,10 @@ Object.extend(b2PrismaticJoint.prototype, {
 
 		// Solve linear constraint.
 		var linearCdot = this.m_linearJacobian.Compute(b1.m_linearVelocity, b1.m_angularVelocity, b2.m_linearVelocity, b2.m_angularVelocity);
+
+
+//		sys.log(this.m_linearMass+' '+b1.m_linearVelocity+' '+ b1.m_angularVelocity+' '+ b2.m_linearVelocity+' '+ b2.m_angularVelocity);
+
 		var linearImpulse = -this.m_linearMass * linearCdot;
 		this.m_linearImpulse += linearImpulse;
 
@@ -438,7 +445,7 @@ Object.extend(b2PrismaticJoint.prototype, {
 
 		b1.m_angularVelocity -= invI1 * angularImpulse;
 		b2.m_angularVelocity += invI2 * angularImpulse;
-
+		
 		// Solve linear motor constraint.
 		if (this.m_enableMotor && this.m_limitState != b2Joint.e_equalLimits)
 		{

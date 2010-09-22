@@ -16,6 +16,7 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
+var b2Settings = require("../common/b2Settings");
 module.exports = b2Proxy;
 
 function b2Proxy() {
@@ -28,7 +29,7 @@ b2Proxy.prototype = {
 	GetNext: function(){ return this.lowerBounds[0]; },
 	SetNext: function(next) { this.lowerBounds[0] = next /*& 0x0000ffff*/; },
 
-	IsValid: function(){ return this.overlapCount != b2BroadPhase.b2_invalid; },
+	IsValid: function(){ return this.overlapCount != b2Settings.USHRT_MAX; },
 
 	lowerBounds: [/*uint*/(0), /*uint*/(0)],
 	upperBounds: [/*uint*/(0), /*uint*/(0)],

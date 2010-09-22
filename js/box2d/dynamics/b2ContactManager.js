@@ -17,6 +17,7 @@
 */
 
 
+var b2Contact = require("./contacts/b2Contact");
 var b2PairCallback = require("../collision/b2PairCallback");
 var b2NullContact = require("./contacts/b2NullContact");
 module.exports = b2ContactManager;

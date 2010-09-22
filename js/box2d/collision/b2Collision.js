@@ -16,8 +16,10 @@
 * 3. This notice may not be removed or altered from any source distribution.
 */
 
-module.exports = b2Collision;
 var b2Vec2 = require("../common/math/b2Vec2");
+var b2Math = require("../common/math/b2Math");
+var ClipVertex = require("./ClipVertex");
+module.exports = b2Collision;
 
 function b2Collision() {};
 

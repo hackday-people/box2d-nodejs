@@ -104,8 +104,6 @@ function b2RevoluteJoint(def){
   this.anchor2Coord  = this.m_localAnchor2.Copy();
 };
 
-//NODEJS - TODO.  Will this extend really work - this is the basis of our inheritance
-sys.log('extending---------------'+b2Joint.prototype+' '+b2RevoluteJoint.prototype);
 Object.extend(b2RevoluteJoint.prototype, b2Joint.prototype);
 Object.extend(b2RevoluteJoint.prototype, 
 {
@@ -320,6 +318,7 @@ Object.extend(b2RevoluteJoint.prototype,
 		b1.m_linearVelocity.y -= b1.m_invMass * ptpImpulseY;
 		//b1->m_angularVelocity -= b1->m_invI * b2Cross(r1, ptpImpulse);
 		b1.m_angularVelocity -= b1.m_invI * (r1X * ptpImpulseY - r1Y * ptpImpulseX);
+
 
 		//b2->m_linearVelocity += b2->m_invMass * ptpImpulse;
 		b2.m_linearVelocity.x += b2.m_invMass * ptpImpulseX;

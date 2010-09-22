@@ -20,6 +20,7 @@
 var b2Bound = require("./b2Bound");
 var b2Proxy = require("./b2Proxy");
 var b2Pair = require("./b2Pair");
+var b2BoundValues = require("./b2BoundValues");
 var b2PairManager = require("./b2PairManager");
 var b2Vec2 = require("../common/math/b2Vec2");
 var b2Math = require("../common/math/b2Math");
